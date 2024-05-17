@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Answer the Questions
+    </div>
+    <div class="card-body">
+        <form action="{% url 'club_matching' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>What trait describes you the most?</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="question1" value="introvert" id="introvert">
+                    <label class="form-check-label" for="introvert">Introvert</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="question1" value="extrovert" id="extrovert">
+                    <label class="form-check-label" for="extrovert">Extrovert</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Which is more important to you as a priority?</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="question2" value="technical" id="technical">
+                    <label class="form-check-label" for="technical">Technical skills</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="question2" value="soft" id="soft">
+                    <label class="form-check-label" for="soft">Soft skills</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="question2" value="both" id="both">
+                    <label class="form-check-label" for="both">Both equally important</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Do you have passion towards competitive programming?</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="question3" value="yes" id="yes">
+                    <label class="form-check-label" for="yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="question3" value="no" id="no">
+                    <label class="form-check-label" for="no">No</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
